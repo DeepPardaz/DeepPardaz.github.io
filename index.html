@@ -1,7 +1,67 @@
 <!DOCTYPE html>
-<div class="animation-container">
-  <div id="animation"></div>
-</div>
+<html>
+<head>
+  <title>Animation Example</title>
+  <style>
+    body {
+      background-color: black;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    #animation-container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .falling-text {
+      position: absolute;
+      color: green;
+      font-size: 24px;
+      font-weight: bold;
+      animation: fallAnimation 3.5s linear forwards;
+    }
+
+    @keyframes fallAnimation {
+      0% {
+        top: -50px;
+        opacity: 0;
+      }
+      100% {
+        top: calc(50% - 24px);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="animation-container">
+    <span class="falling-text">0</span>
+    <span class="falling-text">1</span>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const animationContainer = document.getElementById("animation-container");
+      animationContainer.innerHTML += '<span class="falling-text">D</span>';
+      animationContainer.innerHTML += '<span class="falling-text">e</span>';
+      animationContainer.innerHTML += '<span class="falling-text">e</span>';
+      animationContainer.innerHTML += '<span class="falling-text">p</span>';
+      animationContainer.innerHTML += '<span class="falling-text"> </span>';
+      animationContainer.innerHTML += '<span class="falling-text">P</span>';
+      animationContainer.innerHTML += '<span class="falling-text">a</span>';
+      animationContainer.innerHTML += '<span class="falling-text">r</span>';
+      animationContainer.innerHTML += '<span class="falling-text">d</span>';
+      animationContainer.innerHTML += '<span class="falling-text">a</span>';
+      animationContainer.innerHTML += '<span class="falling-text">z</span>';
+    }, 3500);
+  </script>
+</body>
+</html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
