@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
 <head>
-  <title>Animation Example</title>
+  <title>Falling 0 and 1 Animation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <style>
-    body {
+    icon {
       background-color: black;
-      overflow: hidden;
       margin: 0;
       padding: 0;
-    }
-
-    #animation-container {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
     }
 
     .falling-text {
@@ -24,7 +16,28 @@
       color: green;
       font-size: 24px;
       font-weight: bold;
-      animation: fallAnimation 3.5s linear forwards;
+      animation: fallAnimation 3.5s linear infinite;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .icon-link {
+      color: white; /* Customize the icon color */
+      margin: 10px;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+    .icon-link .hugging-face {
+      color: white;
+    }
+
+    .icon-link:hover {
+      color: #ff0000; /* Customize the hover color */
     }
 
     @keyframes fallAnimation {
@@ -33,91 +46,120 @@
         opacity: 0;
       }
       100% {
-        top: calc(50% - 24px);
+        top: 100vh;
         opacity: 1;
       }
     }
+    body {
+    background-color: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .deep-pardaz {
+      font-size: 72px;
+      font-weight: bold;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      }
+
+    }
+    page {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .deep-pardaz {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      }
+
+    }
+    box{
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .bottom-boxes {
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      color: white;
+    }
+
+    .bottom-box {
+      background-color: none !important;;
+      color: white;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    }
+    
   </style>
 </head>
 <body>
-  <div id="animation-container">
-    <span class="falling-text">0</span>
-    <span class="falling-text">1</span>
-    <span class="falling-text">D</span>
-    <span class="falling-text">e</span>
-    <span class="falling-text">e</span>
-    <span class="falling-text">p</span>
-    <span class="falling-text"> </span>
-    <span class="falling-text">P</span>
-    <span class="falling-text">a</span>
-    <span class="falling-text">r</span>
-    <span class="falling-text">d</span>
-    <span class="falling-text">a</span>
-    <span class="falling-text">z</span>
+  
+
+  <div class="contact-icons">
+    <a href="mailto:your.email@example.com" class="icon-link">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://github.com/your-github-username" class="icon-link">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/your-linkedin-profile" class="icon-link">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+  
+  <div class="deep-pardaz">Deep Pardaz</div>
+  <div class="bottom-boxes">
+    <div class="bottom-box">Documents</div>
+    <div class="bottom-box">Peoples</div>
+    <div class="bottom-box">Products</div>
   </div>
 
   <script>
-    // Optional: If you want to add more "0" and "1" elements dynamically
-    const animationContainer = document.getElementById("animation-container");
-    const characters = ["0", "1", "D", "e", "e", "p", " ", "P", "a", "r", "d", "a", "z"];
-    
-    characters.forEach((char) => {
-      const span = document.createElement("span");
-      span.classList.add("falling-text");
-      span.textContent = char;
-      animationContainer.appendChild(span);
-    });
+    function createFallingText() {
+      var textElement = document.createElement('span');
+      textElement.className = 'falling-text';
+      textElement.innerHTML = Math.floor(Math.random() * 2);
+
+      // Calculate column position based on window width
+      var columnCount = 10; // Adjust the number of columns as needed
+      var columnWidth = window.innerWidth / columnCount;
+      var column = Math.floor(Math.random() * columnCount);
+      var leftPosition = column * columnWidth + columnWidth / 2;
+
+      textElement.style.left = leftPosition + 'px';
+      textElement.style.animationDuration = Math.random() * 3 + 2 + 's'; // Randomize animation duration
+      document.body.appendChild(textElement);
+    }
+
+    function startAnimation() {
+      for (var i = 0; i < 50; i++) { // Adjust the number of elements as needed
+        createFallingText();
+      }
+    }
+
+    startAnimation();
   </script>
 </body>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Landing Page</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-  <!-- Top bar -->
-  <header class="top-bar">
-    <div class="logo">
-      <img src="logo.png" alt="Logo">
-    </div>
-    <nav class="navigation">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main content -->
-  <main class="content">
-    <section id="about">
-      <h1>About Us</h1>
-      <p>This is a sample landing page with Persian green and gray background.</p>
-    </section>
-
-    <section id="services">
-      <h2>Our Services</h2>
-      <ul>
-        <li>Service 1</li>
-        <li>Service 2</li>
-        <li>Service 3</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Address: 123 Example St, City, Country</p>
-      <p>Email: info@example.com</p>
-      <p>Phone: +1234567890</p>
-    </section>
-  </main>
-
-  <!-- Bottom bar -->
-  <footer class="bottom-bar">
-    <p>&copy; 2023 Your Name. All rights reserved.</p>
-  </footer>
-</body>
 </html>
-
