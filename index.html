@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
   <title>Animation Example</title>
   <style>
@@ -42,27 +43,32 @@
   <div id="animation-container">
     <span class="falling-text">0</span>
     <span class="falling-text">1</span>
+    <span class="falling-text">D</span>
+    <span class="falling-text">e</span>
+    <span class="falling-text">e</span>
+    <span class="falling-text">p</span>
+    <span class="falling-text"> </span>
+    <span class="falling-text">P</span>
+    <span class="falling-text">a</span>
+    <span class="falling-text">r</span>
+    <span class="falling-text">d</span>
+    <span class="falling-text">a</span>
+    <span class="falling-text">z</span>
   </div>
 
   <script>
-    setTimeout(() => {
-      const animationContainer = document.getElementById("animation-container");
-      animationContainer.innerHTML += '<span class="falling-text">D</span>';
-      animationContainer.innerHTML += '<span class="falling-text">e</span>';
-      animationContainer.innerHTML += '<span class="falling-text">e</span>';
-      animationContainer.innerHTML += '<span class="falling-text">p</span>';
-      animationContainer.innerHTML += '<span class="falling-text"> </span>';
-      animationContainer.innerHTML += '<span class="falling-text">P</span>';
-      animationContainer.innerHTML += '<span class="falling-text">a</span>';
-      animationContainer.innerHTML += '<span class="falling-text">r</span>';
-      animationContainer.innerHTML += '<span class="falling-text">d</span>';
-      animationContainer.innerHTML += '<span class="falling-text">a</span>';
-      animationContainer.innerHTML += '<span class="falling-text">z</span>';
-    }, 3500);
+    // Optional: If you want to add more "0" and "1" elements dynamically
+    const animationContainer = document.getElementById("animation-container");
+    const characters = ["0", "1", "D", "e", "e", "p", " ", "P", "a", "r", "d", "a", "z"];
+    
+    characters.forEach((char) => {
+      const span = document.createElement("span");
+      span.classList.add("falling-text");
+      span.textContent = char;
+      animationContainer.appendChild(span);
+    });
   </script>
 </body>
-</html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
